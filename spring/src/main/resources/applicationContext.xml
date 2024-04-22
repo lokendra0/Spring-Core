@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define MessageService bean -->
+    <bean id="helloWorld" class="spring.HelloWorld">
+        <property name="message" value="Hello LOKENDRA"/>
+    </bean>
+    
+     <bean id="myBeanConstructor" class="spring.HelloWorld">
+        <constructor-arg value="Hello, constructor injection!" />
+        <constructor-arg value="42" />
+    </bean>
+
+    <!-- Define a bean using setter injection -->
+    <bean id="myBeanSetter" class="spring.HelloWorld">
+        <property name="message" value="Hello, setter injection!" />
+        <property name="number" value="123" />
+    </bean>
+
+    <!-- Define a bean using autowiring by type -->
+    <bean id="myBeanAutowired" class="spring.HelloWorld" autowire="byName">
+        <property name="message" value="Hello, autowiring by name!" />
+        <property name="number" value="999" />
+    </bean>
+    
+    <bean class="spring.MyBeanFactoryPostProcessor"/>
+</beans>
